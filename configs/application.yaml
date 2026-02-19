@@ -1,0 +1,35 @@
+app:
+  name: goboot
+server:
+  port: 8080
+  cors:
+    enabled: true
+    origins: ["http://localhost:5175", "http://localhost:3000"]
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+    headers: ["Authorization", "Content-Type", "X-Requested-With"]
+    exposeHeaders: ["Content-Length", "Content-Type"]
+    credentials: true
+    maxAgeSeconds: 600
+    allowWildcard: true    # izinkan wildcard seperti http://*.example.com
+    allowPrivateNetwork: true # untuk Chrome preflight  Private-Network (optional)
+db:
+  dsn: ""  # override di dev
+security:
+  enabled: false
+  jwt:
+    issuer: goboot
+    audience: api
+    secret: "dev-secret"
+    ttlMinutes: 60
+metrics:
+  prometheus:
+    path: /actuator/metrics
+
+logging:
+  dir: "./logs"        # Direktori log default (relative ke working dir)
+  filename: "app.log"  # Nama file log
+  level: "info"        # info|debug|warn|error
+  maxSizeMB: 50        # rotation size
+  maxBackups: 7
+  maxAgeDays: 14
+  compress: true

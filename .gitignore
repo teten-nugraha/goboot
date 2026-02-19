@@ -1,0 +1,7 @@
+./goboot
+
+# Logs
+logs/
+logs/*.log
+logs/*.log.*
+*.log

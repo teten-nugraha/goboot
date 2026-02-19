@@ -1,0 +1,9 @@
+db:
+  dsn: "postgres://root:root@localhost:5432/goboot?sslmode=disable"
+security:
+  enabled: true
+  jwt:
+    secret: "local-dev-secret"
+    issuer: "goboot"
+    audience: "api"
+    ttlMinutes: 60
